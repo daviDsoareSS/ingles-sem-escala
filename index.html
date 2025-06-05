@@ -188,57 +188,57 @@
             <h2>o que falam de mim por aí</h2>
             <div class="wrapper">
                 <div class="video">
-                    <video class="player" autoplay muted playsinline controls preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/1.MP4" type="video/mp4" />
                     </video>
                 </div>
                 <div class="video">
-                    <video class="player" autoplay muted playsinline preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/2.MP4" type="video/mp4" />
                     </video>
                 </div>
                 <div class="video">
-                    <video class="player" autoplay muted playsinline preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/3.MP4" type="video/mp4" />
                     </video>
                 </div>
                 <div class="video">
-                    <video class="player" autoplay muted playsinline preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/4.MP4" type="video/mp4" />
                     </video>
                 </div>
                 <div class="video">
-                    <video class="player" autoplay muted playsinline preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/5.MP4" type="video/mp4" />
                     </video>
                 </div>
                 <div class="video">
-                    <video class="player" autoplay muted playsinline preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/6.MP4" type="video/mp4" />
                     </video>
                 </div>
                 <div class="video">
-                    <video class="player" autoplay muted playsinline preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/7.MP4" type="video/mp4" />
                     </video>
                 </div>                
                 <div class="video">
-                    <video class="player" autoplay muted playsinline preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/8.MP4" type="video/mp4" />
                     </video>
                 </div>                
                 <div class="video">
-                    <video class="player" autoplay muted playsinline preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/9.MP4" type="video/mp4" />
                     </video>
                 </div>                
                 <div class="video">
-                    <video class="player" autoplay muted playsinline preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/10.MP4" type="video/mp4" />
                     </video>
                 </div>                
                 <div class="video">
-                    <video class="player" autoplay muted playsinline preload="metadata" poster="img/section6/thumbnail.webp">
+                    <video id="video-apresentacao" class="video-js" controls preload="auto" autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
                         <source src="videos/depoimentos/11.MP4" type="video/mp4" />
                     </video>
                 </div>                           
@@ -397,11 +397,6 @@
   <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-
-    
-});
-
     const swiper = new Swiper('.swiper', {
         loop: true,
         centeredSlides: true,
@@ -421,6 +416,50 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 </script>
 <script>
+    // Espera tudo carregar
+    window.onload = function() {
+      // Array para controlar todos os players
+      const allPlayers = [];
+      
+      // Função para inicializar um player
+      function initPlayer(id) {
+        const player = videojs(id, {
+          // Configurações opcionais
+          controls: true,
+          autoplay: false,
+          fluid: true
+        }, function() {
+          // Callback quando o player estiver pronto
+          console.log('Player ready:', id);
+          
+          // Adiciona ao controle global
+          allPlayers.push(player);
+          
+          // Evento de play
+          player.on('play', function() {
+            console.log('Playing:', id);
+            // Pausa todos os outros players
+            allPlayers.forEach(p => {
+              if (p !== player && !p.paused()) {
+                console.log('Pausing other player:', p.id());
+                p.pause();
+              }
+            });
+          });
+        });
+      }
+      
+      // Inicializa todos os players
+      document.querySelectorAll('.video-js').forEach(item => {
+          initPlayer(item);
+      })
+      
+      // DEBUG: Verifica no console
+      console.log('Total players initialized:', allPlayers.length);
+    };
+  </script>
+
+<script> 
     document.addEventListener("DOMContentLoaded", () => {
         const video_player_apresentacao = videojs("video-apresentacao");
         const section_3 = document.querySelector("section.section_3");

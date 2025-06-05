@@ -857,7 +857,6 @@ footer .by_evox img{
         border-radius: 10px;
         width: 100% !important;
         height: 300px !important;
-
     }
     section.section_3 .wrapper .center .video .video-js{
         width: 100% !important;
@@ -866,8 +865,6 @@ footer .by_evox img{
     section.section_3 .wrapper .center .video video{
         width: 100% !important;
         height: 300px !important;
-    }
-    section.section_3 .wrapper .center .video video#video-apresentacao{
     }
     section.section_3 .wrapper .cta a{
         width: 100%;
@@ -935,12 +932,22 @@ footer .by_evox img{
         flex-basis: 47%;
         height: 300px;
     }
-    section.section_6 .wrapper .video .plyr__controls {
-        display: none !important;
-    }
     section.section_6 .wrapper .video video{
         width: 100% !important;
         height: 100% !important;
+    }
+      section.section_6 .wrapper .video {
+        border-radius: 10px;
+        width: 100% !important;
+        height: 300px !important;
+    }
+      section.section_6 .wrapper .video .video-js{
+        width: 100% !important;
+        height: 300px !important;
+    }
+      section.section_6 .wrapper .video video{
+        width: 100% !important;
+        height: 300px !important;
     }
     section.section_7{
         overflow: hidden;
