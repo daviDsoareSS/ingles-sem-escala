@@ -88,7 +88,7 @@ main .wrapper .text:before{
     top: -200px;
     width: 906px;
     height: 468px;
-    background-image: url("img/hero/bandeira_esquerda.webp");
+    background-image: url("../img/hero/bandeira_esquerda.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -194,7 +194,7 @@ section.section_2 .wrapper .text:after{
     bottom: -200px;
     width: 303px;
     height: 393px;
-    background-image: url("img/section2/bandeira_direita.webp");
+    background-image: url("../img/section2/bandeira_direita.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -238,7 +238,7 @@ section.section_2 .wrapper .text ul li svg{
 section.section_3{
     overflow: hidden;
     position: relative;
-    background-image: url("img/section3/banner.webp");
+    background-image: url("../img/section3/banner.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -278,7 +278,7 @@ section.section_3 .wrapper:after{
     transform: translateY(-50%);
     width: 100%;
     height: 100%;
-    background-image: url("img/section3/cortina.webp");
+    background-image: url("../img/section3/cortina.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -315,6 +315,8 @@ section.section_3 .wrapper .center .video{
     border-radius: 40px;
 }
 section.section_3 .wrapper .center .video video{
+    background-color: #000;
+    width: 100%;
     height: 500px;
 }
 section.section_3 .wrapper .cta{
@@ -333,7 +335,7 @@ section.section_3 .wrapper .cta a{
     color: #fff;
 }
 section.section_4{
-    background-image: url("img/section4/banner.webp");
+    background-image: url("../img/section4/banner.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -379,7 +381,7 @@ section.section_4 .swiper .swiper-slide:after,
 section.section_4 .swiper .swiper-slide:before{
     content: "";
     position: absolute;
-    background-image: url("img/section4/slide_asset.webp");
+    background-image: url("../img/section4/slide_asset.webp");
     background-repeat: no-repeat;
     background-size: 100% 40px;
     background-position: center;   
@@ -412,7 +414,7 @@ section.section_4 .cta a{
 }
 section.section_5{
     padding: 80px 0;
-    background-image: url("img/section5/banner.webp");
+    background-image: url("../img/section5/banner.webp");
     background-repeat: repeat-y;
     background-size: contain;
     background-position: center;
@@ -457,7 +459,7 @@ section.section_5 .wrapper .text p{
 }
 section.section_6 {
     padding: 50px 0;
-    background-image: url("img/section6/banner.webp");
+    background-image: url("../img/section6/banner.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -619,7 +621,7 @@ section.section_7 .wrapper .garantia:before{
     top: -500px;
     left: 50%;
     transform: translateX(-52%);
-    background-image: url("img/section7/teacher.webp");
+    background-image: url("../img/section7/teacher.webp");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -661,7 +663,7 @@ section.section_7 .wrapper .garantia .text p span{
 }
 section.section_8{
     padding: 30px 0;
-    background-image: url("img/section8/banner.webp");
+    background-image: url("../img/section8/banner.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -851,8 +853,21 @@ footer .by_evox img{
     section.section_3 .wrapper .center .top h4{
         font-size: 20px;
     }
+    section.section_3 .wrapper .center .video {
+        border-radius: 10px;
+        width: 100% !important;
+        height: 300px !important;
+
+    }
+    section.section_3 .wrapper .center .video .video-js{
+        width: 100% !important;
+        height: 300px !important;
+    }
     section.section_3 .wrapper .center .video video{
-        height: 300px;
+        width: 100% !important;
+        height: 300px !important;
+    }
+    section.section_3 .wrapper .center .video video#video-apresentacao{
     }
     section.section_3 .wrapper .cta a{
         width: 100%;

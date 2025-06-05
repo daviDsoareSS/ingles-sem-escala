@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inglês sem escala | Fale com o mundo, viaje sem barreiras</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />    <style>
+    <link rel="stylesheet" href="css/style.css">
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.min.css" rel="stylesheet">
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Glegoo:wght@400;700&display=swap');
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
@@ -75,8 +76,12 @@
                         <h4>O curso prático de <span>sobrevivência</span> para nunca mais passar perrengue está a um clique de você.</h4>
                     </div>
                     <div class="video">
-                        <video class="player" autoplay muted playsinline preload="metadata">
+                        <video id="video-apresentacao" class="video-js" controls preload="auto" width="800" height="500" data-setup="{}">
                             <source src="videos/curso/apresentacao.mp4" type="video/mp4" />
+                            <p class="vjs-no-js">
+                                To view this video please enable JavaScript, and consider upgrading to a
+                            web browser that
+                            </p>
                         </video>
                     </div>
                     <div class="cta" id="animation-btn">
@@ -389,31 +394,12 @@
         </div>
     </footer>
 
-<script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const players = Array.from(document.querySelectorAll('.player')).map(video => {
-        const plyr = new Plyr(video, {
-            controls: ['play'],
-            clickToPlay: true,
-            muted: false,
-        });
 
-        return plyr;
-    });
-
-    // Adiciona um listener para o evento 'play' em cada player
-    players.forEach(player => {
-        player.on('play', () => {
-            // Pausa todos os outros players
-            players.forEach(otherPlayer => {
-                if (otherPlayer !== player && !otherPlayer.paused) {
-                    otherPlayer.pause();
-                }
-            });
-        });
-    });
+    
 });
 
     const swiper = new Swiper('.swiper', {
@@ -436,6 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
+        const video_player_apresentacao = videojs("video-apresentacao");
         const section_3 = document.querySelector("section.section_3");
 
         if (!section_3) return;
@@ -445,6 +432,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     observer.unobserve(entry.target);
                     entry.target.classList.add('visible');
+                    video_player_apresentacao.play();
                 }
             });
         }, {
