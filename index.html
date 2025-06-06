@@ -76,11 +76,10 @@
                         <h4>O curso prático de <span>sobrevivência</span> para nunca mais passar perrengue está a um clique de você.</h4>
                     </div>
                     <div class="video">
-                        <video id="video-apresentacao" class="video-js" controls preload="auto" width="800" height="500" data-setup="{}">
-                            <source src="videos/curso/apresentacao.mp4" type="video/mp4" />
+                        <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}' width="800" height="500">
+                            <source src="videos/curso/apresentacao.webm" type="video/webm" />
                             <p class="vjs-no-js">
-                                To view this video please enable JavaScript, and consider upgrading to a
-                            web browser that
+                                To view this video please enable JavaScript, and consider upgrading to a web browser that
                             </p>
                         </video>
                     </div>
@@ -394,27 +393,8 @@
         </div>
     </footer>
 
-  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+<script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    const swiper = new Swiper('.swiper', {
-        loop: true,
-        centeredSlides: true,
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
-        },
-        speed: 1300,
-        breakpoints: {
-            768: {
-                slidesPerView: 1,
-            },
-            1024: {
-                slidesPerView: 3,
-            }
-        }
-    })
-</script>
 <script>
   // Espera tudo carregar
   window.onload = function() {
@@ -490,7 +470,27 @@
     });
   };
 </script>
-
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            speed: 1300,
+            breakpoints: {
+                768: {
+                    slidesPerView: 1,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        })
+    });
+</script>
 <script> 
     document.addEventListener("DOMContentLoaded", () => {
         const section_3 = document.querySelector("section.section_3");
@@ -513,14 +513,14 @@
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var collapsibles = document.querySelectorAll('.collapsible');
+        const collapsibles = document.querySelectorAll('.collapsible');
 
         collapsibles.forEach(function (button) {
             button.addEventListener('click', function () {
                 collapsibles.forEach(function (c) {
                     if (c !== button) {
                         c.classList.remove('active');
-                        var otherContent = c.nextElementSibling;
+                        const otherContent = c.nextElementSibling;
                         if (otherContent && otherContent.style.maxHeight) {
                             otherContent.style.maxHeight = null;
                         }
@@ -529,7 +529,7 @@
 
                 // Toggle o botão atual
                 this.classList.toggle('active');
-                var content = this.nextElementSibling;
+                const content = this.nextElementSibling;
                 if (content.style.maxHeight) {
                     content.style.maxHeight = null;
                 } else {
