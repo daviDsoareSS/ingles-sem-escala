@@ -773,7 +773,8 @@ footer .by_evox img{
     }
     main .wrapper .text:before{
         top: inherit;
-        bottom: -100px;
+        bottom: -150px;
+        opacity: 0.3;
         z-index: -1;
         right: -200px;
         left: inherit;
@@ -1011,6 +1012,7 @@ footer .by_evox img{
         font-size: 16.67px;
     }
     section.section_8 {
+        background-image: url("../img/section8/banner_mobile.webp");
         min-height: auto;
     }
     section.section_8 h2{
@@ -1023,9 +1025,9 @@ footer .by_evox img{
     }
     section.section_8 .collapsible{
         position: relative;
-        padding: 15px 20px;
-        padding-right: 30px;
-        font-size: 20px;
+        padding: 15px;
+        padding-right: 45px;
+        font-size: 16.67px;
         line-height: 1.1;
     }
     section.section_8 .collapsible svg{

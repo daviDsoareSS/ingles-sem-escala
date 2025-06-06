@@ -188,57 +188,57 @@
             <h2>o que falam de mim por aí</h2>
             <div class="wrapper">
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/1.webm" type="video/webm" />
                     </video>
                 </div>
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/2.webm" type="video/webm" />
                     </video>
                 </div>
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/3.webm" type="video/webm" />
                     </video>
                 </div>
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/4.webm" type="video/webm" />
                     </video>
                 </div>
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/5.webm" type="video/webm" />
                     </video>
                 </div>
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/6.webm" type="video/webm" />
                     </video>
                 </div>
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/7.webm" type="video/webm" />
                     </video>
                 </div>                
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/8.webm" type="video/webm" />
                     </video>
                 </div>                
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/9.webm" type="video/webm" />
                     </video>
                 </div>                
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/10.webm" type="video/webm" />
                     </video>
                 </div>                
                 <div class="video">
-                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline autoplay="false" poster="img/section6/thumbnail.webp" data-setup='{ "controls": true, "fullscreen": false }'>
+                    <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
                         <source src="videos/depoimentos/11.webm" type="video/webm" />
                     </video>
                 </div>                           
@@ -416,49 +416,83 @@
     })
 </script>
 <script>
-    // Espera tudo carregar
-    window.onload = function() {
-      // Array para controlar todos os players
-      const allPlayers = [];
+  // Espera tudo carregar
+  window.onload = function() {
+    // Array para controlar todos os players
+    const allPlayers = [];
+    
+    // Função para inicializar um player
+    function initPlayer(videoElement) {
+      // Garante que o autoplay está desativado no elemento HTML
+      const video = videoElement.querySelector('video') || videoElement;
+      video.removeAttribute('autoplay');
+      video.autoplay = false;
       
-      // Função para inicializar um player
-      function initPlayer(id) {
-        const player = videojs(id, {
-          // Configurações opcionais
-          controls: true,
-          autoplay: false,
-          fluid: true
-        }, function() {
-          // Callback quando o player estiver pronto
-          console.log('Player ready:', id);
-          
-          // Adiciona ao controle global
-          allPlayers.push(player);
-          
-          // Evento de play
-          player.on('play', function() {
-            console.log('Playing:', id);
-            // Pausa todos os outros players
-            allPlayers.forEach(p => {
-              if (p !== player && !p.paused()) {
-                console.log('Pausing other player:', p.id());
-                p.pause();
-              }
-            });
+      const player = videojs(videoElement, {
+        // Configurações que desativam qualquer autoplay
+        controls: true,
+        autoplay: false,        // Desativa autoplay no Video.js
+        preload: 'metadata',   // Não carrega o vídeo completamente
+        muted: false,          // Garante que não está mudo (que poderia permitir autoplay)
+        controlBar: {
+            fullscreenToggle: false // Desativa o botão de tela cheia
+        },
+        fluid: true
+      }, function() {
+        
+        // Adiciona ao controle global
+        allPlayers.push(player);
+        
+        // Pausa imediatamente caso esteja tocando (redundância)
+        if (!player.paused()) {
+          player.pause();
+        }
+
+        player.ready(function() {
+            // Remove o botão de fullscreen do DOM (garantido)
+            const fullscreenButton = this.controlBar.getChild('fullscreenToggle');
+            if (fullscreenButton) {
+            this.controlBar.removeChild(fullscreenButton);
+            }
+
+            // Redundância: desativa funcionalidade de tela cheia
+            this.tech_.supportsFullScreen = function() { return false; };
+        });
+        // Evento de play
+        player.on('play', function() {
+          // Pausa todos os outros players
+          allPlayers.forEach(p => {
+            if (p !== player && !p.paused()) {
+              p.pause();
+            }
           });
         });
-      }
+        
+        // Evento adicional para detectar tentativas de autoplay
+        player.on('loadstart', function() {
+          if (player.autoplay()) {
+            player.autoplay(false);
+          }
+        });
+      });
       
-      document.querySelectorAll('.video-js').forEach(item => {
-          initPlayer(item);
-      })
-      
-    };
-  </script>
+      // Redundância: força pausa após um pequeno delay
+      setTimeout(() => {
+        if (!player.paused()) {
+          player.pause();
+        }
+      }, 500);
+    }
+    
+    // Inicializa todos os players
+    document.querySelectorAll('.video-js').forEach(item => {
+      initPlayer(item);
+    });
+  };
+</script>
 
 <script> 
     document.addEventListener("DOMContentLoaded", () => {
-        const video_player_apresentacao = videojs("video-apresentacao");
         const section_3 = document.querySelector("section.section_3");
 
         if (!section_3) return;
@@ -468,7 +502,6 @@
                 if (entry.isIntersecting) {
                     observer.unobserve(entry.target);
                     entry.target.classList.add('visible');
-                    video_player_apresentacao.play();
                 }
             });
         }, {
