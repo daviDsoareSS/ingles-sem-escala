@@ -1016,10 +1016,11 @@ footer .by_evox img{
         font-size: 16.67px;
     }
     section.section_8 {
-        background-image: url("../img/section8/banner_mobile.webp");
+        background-image: url("../img/section8/banner_mobile2.webp");
         min-height: auto;
     }
     section.section_8 h2{
+        margin-top: 400px;
         font-size: 30px;
         line-height: 1.1;
         margin-bottom: 30px;
