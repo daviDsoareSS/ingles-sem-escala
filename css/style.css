@@ -764,7 +764,7 @@ footer .by_evox img{
     main .wrapper .image{
         position: relative;
         height: auto;
-        transform: scale(1.5) translateX(20px) translateY(40px);
+        transform: scale(1.5) translateX(35px) translateY(40px);
     }
     @keyframes animacao_bandeira_esquerda_hero {
         to{
