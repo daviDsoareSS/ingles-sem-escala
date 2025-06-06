@@ -233,6 +233,13 @@
                         <source src="videos/depoimentos/8.webm" type="video/webm" />
                         <source src="videos/depoimentos/8.mp4" type="video/mp4" />
                     </video>
+                </div>               
+                 <!--teste  -->
+                <div class="video">
+                    <video controls playsinline webkit-playsinline preload="metadata" >
+                        <source src="videos/depoimentos/9.webm" type="video/webm" />
+                        <source src="videos/depoimentos/9.mp4" type="video/mp4" />
+                    </video>
                 </div>                
                 <div class="video">
                     <video id="video-apresentacao" class="video-js" controls playsinline webkit-playsinline preload="metadata" data-setup='{}'>
@@ -407,101 +414,79 @@
 <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-  const allPlayers = [];
-  
-  // Função para gerar thumbnail com fallback para iOS
-  async function generatePoster(videoElement) {
-    const video = videoElement.querySelector('video') || videoElement;
+  // Espera tudo carregar
+  window.onload = function() {
+    // Array para controlar todos os players
+    const allPlayers = [];
     
-    return new Promise((resolve) => {
-      // Fallback para caso o iOS não carregue os metadados
-      const fallbackTimer = setTimeout(() => {
-        video.setAttribute('poster', 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NDAiIGhlaWdodD0iMzYwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzY2NiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+VmlkZW8gUHJldmlldzwvdGV4dD48L3N2Zz4=');
-        resolve();
-      }, 3000);
-
-      function captureFrame() {
-        clearTimeout(fallbackTimer);
-        try {
-          const canvas = document.createElement('canvas');
-          video.currentTime = 0.1;
-          
-          video.addEventListener('seeked', function() {
-            canvas.width = video.videoWidth || 640;
-            canvas.height = video.videoHeight || 360;
-            const ctx = canvas.getContext('2d');
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            video.setAttribute('poster', canvas.toDataURL());
-            resolve();
-          });
-        } catch (e) {
-          console.error('Error generating thumbnail:', e);
-          resolve();
+    // Função para inicializar um player
+    function initPlayer(videoElement) {
+      // Garante que o autoplay está desativado no elemento HTML
+      const video = videoElement.querySelector('video') || videoElement;
+      video.removeAttribute('autoplay');
+      video.autoplay = false;
+      
+      const player = videojs(videoElement, {
+        // Configurações que desativam qualquer autoplay
+        controls: true,
+        autoplay: false,        // Desativa autoplay no Video.js
+        preload: 'metadata',   // Não carrega o vídeo completamente
+        muted: false,          // Garante que não está mudo (que poderia permitir autoplay)
+        controlBar: {
+            fullscreenToggle: false // Desativa o botão de tela cheia
+        },
+        fluid: true
+      }, function() {
+        
+        // Adiciona ao controle global
+        allPlayers.push(player);
+        
+        // Pausa imediatamente caso esteja tocando (redundância)
+        if (!player.paused()) {
+          player.pause();
         }
-      }
 
-      // Tenta carregar metadados
-      if (video.readyState >= 1) { // Já tem metadados
-        captureFrame();
-      } else {
-        // Adiciona múltiplos listeners para iOS
-        video.addEventListener('loadedmetadata', captureFrame);
-        video.addEventListener('loadeddata', captureFrame);
-        video.load();
-      }
-    });
-  }
+        player.ready(function() {
+            // Remove o botão de fullscreen do DOM (garantido)
+            const fullscreenButton = this.controlBar.getChild('fullscreenToggle');
+            if (fullscreenButton) {
+            this.controlBar.removeChild(fullscreenButton);
+            }
 
-  // Função para inicializar player
-  async function initPlayer(videoElement) {
-    // 1. Primeiro tenta gerar a thumbnail
-    await generatePoster(videoElement);
-    
-    // 2. Inicializa o Video.js
-    const player = videojs(videoElement, {
-      controls: true,
-      autoplay: false,
-      preload: 'metadata',
-      fluid: true,
-      controlBar: { fullscreenToggle: false }
-    });
-
-    player.ready(function() {
-      // Remove botão fullscreen
-      const fsButton = this.controlBar.getChild('fullscreenToggle');
-      if (fsButton) this.controlBar.removeChild(fsButton);
-      
-      // Adiciona ao controle global
-      allPlayers.push(player);
-      
-      // Pausa outros players quando este tocar
-      player.on('play', () => {
-        allPlayers.forEach(p => {
-          if (p !== player && !p.paused()) p.pause();
+            // Redundância: desativa funcionalidade de tela cheia
+            this.tech_.supportsFullScreen = function() { return false; };
+        });
+        // Evento de play
+        player.on('play', function() {
+          // Pausa todos os outros players
+          allPlayers.forEach(p => {
+            if (p !== player && !p.paused()) {
+              p.pause();
+            }
+          });
+        });
+        
+        // Evento adicional para detectar tentativas de autoplay
+        player.on('loadstart', function() {
+          if (player.autoplay()) {
+            player.autoplay(false);
+          }
         });
       });
       
-      // Fallback visual se não tiver poster
-      if (!player.poster()) {
-        player.poster('data:image/svg+xml;base64,...');
-      }
-    });
-  }
-
-  // Inicializa players em batches (2 por vez para iOS)
-  const players = Array.from(document.querySelectorAll('.video-js'));
-  const processBatch = (index = 0) => {
-    const batch = players.slice(index, index + 2);
-    Promise.all(batch.map(initPlayer)).then(() => {
-      if (index + 2 < players.length) {
-        setTimeout(() => processBatch(index + 2), 500);
-      }
+      // Redundância: força pausa após um pequeno delay
+      setTimeout(() => {
+        if (!player.paused()) {
+          player.pause();
+        }
+      }, 500);
+    }
+    
+    // Inicializa todos os players
+    document.querySelectorAll('.video-js').forEach(item => {
+      initPlayer(item);
     });
   };
-  
-  processBatch();
-});
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
