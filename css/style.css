@@ -95,7 +95,11 @@ main .wrapper .text:before{
 }
 main .wrapper .text .top {
     line-height: 1.1;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
+}
+main .wrapper .text .top img{
+    width: 100%;
+    height: auto;
 }
 main .wrapper .text .top h1{
     font-size: 50px;
@@ -135,7 +139,7 @@ main .wrapper .text .body h5 span{
     font-weight: 600;
 }
 main .wrapper .text .cta{
-    width: 100%;
+    width: 100% !important;
     display: flex;
     justify-content: center;
 }
@@ -143,7 +147,7 @@ main .wrapper .text .cta a{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 420px;
+    width: 100% !important;
     height: 63px;
     background-color: #ff3131;
     font-size: 22px;
@@ -155,8 +159,8 @@ main .wrapper .image{
     position: absolute;
     display: inline-flex;
     width: 100%;
-    height: 780px;
-    transform: translateX(350px);
+    height: 620px;
+    transform: translateX(250px);
 }
 section.section_2{
     display: flex;
@@ -174,7 +178,7 @@ section.section_2 .wrapper .image{
     position: absolute;
     width: 100%;
     height: 600px;
-    left: -500px;
+    left: -400px;
 }
 section.section_2 .wrapper .text{
     position: relative;
@@ -759,12 +763,12 @@ footer .by_evox img{
     }
     main .wrapper{
         flex-direction: column-reverse;
-        gap: 60px;
+        gap: 20px;
     }
     main .wrapper .image{
         position: relative;
         height: auto;
-        transform: scale(1.5) translateX(35px) translateY(40px);
+        transform: scale(1.3) translateX(-30px) translateY(30px);
     }
     @keyframes animacao_bandeira_esquerda_hero {
         to{
@@ -782,13 +786,9 @@ footer .by_evox img{
         width: 100%;
     }
     main .wrapper .text .top{
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
-    main .wrapper .text .top h1{
-        font-size: 30px;
-    }
-    main .wrapper .text .top h6{
-        font-size: 20px;
+    main .wrapper .text .top img{
     }
     main .wrapper .text .body h3{
         font-size: 20px;
@@ -805,6 +805,10 @@ footer .by_evox img{
         width: 100%;
         font-size: 20px;
     }
+    section.section_2 {
+        padding-top: 40px;
+        overflow: hidden !important;
+    }
     section.section_2 .wrapper{
         flex-direction: column;
     }
@@ -812,7 +816,7 @@ footer .by_evox img{
         position: relative;
         left: inherit;
         height: auto;
-        transform: translateX(-40px);
+        transform: translateX(35px) scale(1.3);
     }
     section.section_2 .wrapper .text{
         width: 100%;
