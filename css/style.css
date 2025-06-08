@@ -123,10 +123,6 @@ main .wrapper .text .top img{
     width: 100%;
     height: auto;
 }
-main .wrapper .text .top h1{
-    font-size: 50px;
-    margin: 0;
-}
 main .wrapper .text .top h6{
     font-size: 25px;
     font-style: italic;
@@ -134,12 +130,12 @@ main .wrapper .text .top h6{
 main .wrapper .text .body{
     margin-bottom: 20px;
 }
-main .wrapper .text .body h3{
+main .wrapper .text .body h1{
     font-weight: 400;
     font-size: 45px;
     line-height: 1.1;
 }
-main .wrapper .text .body h3 span{
+main .wrapper .text .body h1 span{
     color: #ff3131;
 }
 main .wrapper .text .body p{

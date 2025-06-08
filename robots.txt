@@ -1,0 +1,14 @@
+# Permite todos os bots conhecidos
+User-agent: *
+
+# Bloqueia pastas técnicas que não precisam ser indexadas (caso existam)
+Disallow: /css/
+Disallow: /img/
+Disallow: /favicon/
+Disallow: /videos/
+
+# Permite tudo o que não foi explicitamente bloqueado
+Allow: /
+
+# Sitemap para facilitar o rastreamento
+# Sitemap: https://davidsoaress.github.io/ingles-sem-escala/sitemap.xml
