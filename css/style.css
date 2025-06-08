@@ -863,7 +863,7 @@ footer .by_evox img{
     }
     section.section_3 .wrapper:before, 
     section.section_3 .wrapper:after{
-        transform: translateY(-50%) scaleY(2.5);
+        transform: translateY(-50%) scaleY(2.5) ;
     }
     section.section_3 .wrapper:after{
         transform: translateY(-50%) scaleX(-1) scaleY(2.5);
