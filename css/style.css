@@ -1077,3 +1077,108 @@ footer .by_evox img{
         justify-content: center;
     }
 }
+/* Media Query for 800x1280 resolution */
+@media (width: 800px) and (height: 1280px) {
+    /* Adjustments for main section */
+    main {
+        height: auto;
+        padding: 40px 0;
+    }
+    
+    main .wrapper .text {
+        transform: translateX(-200px);
+    }
+    
+    main .wrapper .image {
+        transform: translateX(150px) scale(0.9);
+    }
+    
+    /* Adjust section 2 */
+    section.section_2 .wrapper .text {
+        width: 500px;
+    }
+    
+    /* Adjust section 3 video */
+    section.section_3 .wrapper .center .video {
+        transform: scale(0.7);
+    }
+    
+    /* Adjust section 4 slides */
+    section.section_4 .swiper .swiper-slide {
+        transform: scale(0.6);
+    }
+    
+    section.section_4 .swiper .swiper-slide.swiper-slide-active {
+        transform: scale(0.8) translateY(-50px);
+    }
+    
+    /* Adjust section 5 */
+    section.section_5 .wrapper {
+        gap: 30px;
+    }
+    
+    section.section_5 .wrapper .image {
+        width: 600px;
+    }
+    
+    /* Adjust section 6 videos */
+    section.section_6 .wrapper .video {
+        flex-basis: 45%;
+        height: 350px;
+    }
+}
+
+/* Media Query for 900x1440 resolution */
+@media (width: 900px) and (height: 1440px) {
+    /* Adjust main section */
+    main {
+        height: 680px;
+    }
+    
+    main .wrapper .text {
+        transform: translateX(-250px);
+    }
+    
+    main .wrapper .image {
+        transform: translateX(200px);
+    }
+    
+    /* Adjust section 2 */
+    section.section_2 .wrapper .text {
+        width: 550px;
+    }
+    
+    /* Adjust section 3 */
+    section.section_3 .wrapper .center {
+        width: 700px;
+    }
+    
+    /* Adjust section 4 */
+    section.section_4 h2 {
+        width: 900px;
+    }
+    
+    /* Adjust section 5 */
+    section.section_5 .wrapper {
+        gap: 40px;
+    }
+    
+    section.section_5 .wrapper .image {
+        width: 700px;
+    }
+    
+    /* Adjust section 6 */
+    section.section_6 .wrapper .video {
+        flex-basis: 30%;
+        height: 400px;
+    }
+    
+    /* Adjust section 7 */
+    section.section_7 .wrapper .box-precos {
+        width: 550px;
+    }
+    
+    section.section_7 .wrapper .garantia {
+        width: 400px;
+    }
+}
