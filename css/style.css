@@ -141,8 +141,8 @@ main .wrapper{
 main .wrapper .text{
     position: relative;
     z-index: 2;
-    width: 520px;
-    transform: translateX(-400px);
+    width: 550px;
+    transform: translateX(-340px);
 }
 @keyframes animacao_bandeira_esquerda_hero {
     to{
@@ -164,16 +164,31 @@ main .wrapper .text:before{
     background-size: contain;
     background-position: center;
 }
+main .wrapper .text .top h3{
+    font-family: "Exo", serif;
+    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-lg));
+    font-weight: var(--font-weight-extrabold);
+    color: #004aad;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
 main .wrapper .text .top h1{
     font-family: "Exo", serif;
-    font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-4xl));
+    font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-3xl));
     font-weight: var(--font-weight-extrabold);
     color: var(--plyr-color-main);
     line-height: 1.1;
     text-transform: uppercase;
+    text-wrap: nowrap;
 }
 main .wrapper .text .top h1 span{
     color: #004aad;
+    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-5xl)) !important;
+    text-wrap: nowrap;
+}
+main .wrapper .text .top h2{
+    font-style: italic;
+    font-size: clamp(var(--font-size-sm), 3vw, var(--font-size-md));
 }
 main .wrapper .text .top img{
     width: 100%;
@@ -198,6 +213,7 @@ main .wrapper .text .body p{
     font-family: "Exo", serif;
     font-size: clamp(var(--font-size-sm), 3vw, var(--font-size-md));
     font-weight: var(--font-weight-semibold);
+    text-align: justify;
     color: #000;
     line-height: 1.1;
     margin: 10px 0;
@@ -286,8 +302,14 @@ section.section_2 .wrapper .text .body h2{
     font-size: clamp(var(--font-size-md), 5vw, var(--font-size-3xl));
     font-family: "Exo", serif;
     font-weight: var(--font-weight-extrabold);
-    color: var(--plyr-color-main);
+    text-align: center;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #004aad;
     text-transform: uppercase;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 7px;
 }
 section.section_2 .wrapper .text .body h3{
     margin: 20px 0;
@@ -408,7 +430,14 @@ section.section_3 .wrapper .center .top h2{
     font-family: "Exo", serif;
     font-weight: var(--font-weight-extrabold);
     font-size: clamp(var(--font-size-md), 5vw, var(--font-size-3xl));
-    color: #ff3131;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #004aad;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 7px;
     margin-bottom: 15px;
 }
 section.section_3 .wrapper .center .top h4{
@@ -416,6 +445,7 @@ section.section_3 .wrapper .center .top h4{
     font-weight: var(--font-weight-normal);
     line-height: 1.1;
     margin-bottom: 20px;
+    
 }
 section.section_3 .wrapper .center .top h4 span{
     color: #ff3131;
@@ -424,12 +454,15 @@ section.section_3 .wrapper .center .top p{
     font-size: clamp(var(--font-size-md), 5vw, var(--font-size-2xl));
     font-weight: var(--font-weight-normal);
     line-height: 1.1;
-    background-color: #004aad;
     width: fit-content;
-    padding: 4px 10px;
     color: #fff;
-    border-radius: 4px;
-    margin: 0 auto;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #ff3131;
+    text-transform: uppercase;
+    width: fit-content;
+    border-radius: 7px;
+    margin: 20px auto;
 }
 section.section_3 .wrapper .center .video{
     transform: scale(0.8);
@@ -471,14 +504,21 @@ section.section_4 .content{
 section.section_4 h2{
     text-align: center;
     font-size: clamp(var(--font-size-md), 5vw, var(--font-size-3xl));
-    color: #fff;
-    line-height: 1.1;
+    color: #ff3131;
+    line-height: 1.7;
     width: 1100px;
     margin: 0 auto;
     margin-bottom: 40px !important;
 }
 section.section_4 h2 span{
-    color: #ff3131;
+    color: #fff;
+    text-align: center;
+    background-color: #004aad;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 7px;
+    padding: 5px 20px;
 }
 section.section_4 .situations-grid{
     display: flex;
@@ -533,7 +573,14 @@ section.section_4 h3{
     margin-bottom: 30px !important;
 }
 section.section_4 h3 span{
-    color: #ff3131;
+    color: #fff;
+    text-align: center;
+    padding: 4px 10px;
+    background-color: #ff3131;
+    text-transform: uppercase;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 7px;
 }
 section.section_4 .swiper{
     width: 100%;
@@ -618,7 +665,7 @@ section.section_5 h2 span{
 section.section_5 .wrapper{
     display: flex;
     justify-content: center;
-    align-items: start;
+    align-items: center;
     gap: 50px;
 }
 section.section_5 .wrapper .image{
@@ -635,6 +682,15 @@ section.section_5 .wrapper .text{
 section.section_5 .wrapper .text p{
     font-size: var(--font-size-xl);
     line-height: 1.1;
+}
+section.section_5 .wrapper .text p strong{
+    color: #004aad;
+}
+section.section_5 .wrapper .text i{
+    color: #004aad;
+}
+section.section_5 .wrapper .text .red{
+    color: #ff3131;
 }
 section.section_6 {
     padding: 50px 0;
@@ -777,10 +833,11 @@ section.section_7 .wrapper .box-precos .body .promotion h4 span{
 section.section_7 .wrapper .box-precos .body .promotion h3{
     font-family: "Exo", serif;
     font-size: clamp(var(--font-size-xl), 5vw, var(--font-size-2xl));
-    font-weight: var(--font-weight-extrabold);
-    color: #ff3131;
+    font-weight: var(--font-weight-normal);
 }
 section.section_7 .wrapper .box-precos .body .promotion h3 span{
+    font-weight: var(--font-weight-extrabold);
+    color: #ff3131;
     font-size: clamp(var(--font-size-md), 5vw, var(--font-size-4xl));
 }
 section.section_7 .wrapper .box-precos .body .promotion p{
