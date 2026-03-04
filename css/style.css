@@ -142,7 +142,7 @@ main .wrapper .text{
     position: relative;
     z-index: 2;
     width: 550px;
-    transform: translateX(-340px);
+    transform: translateX(-350px);
 }
 @keyframes animacao_bandeira_esquerda_hero {
     to{
@@ -183,7 +183,7 @@ main .wrapper .text .top h1{
 }
 main .wrapper .text .top h1 span{
     color: #004aad;
-    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-5xl)) !important;
+    font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-5xl)) !important;
     text-wrap: nowrap;
 }
 main .wrapper .text .top h2{
@@ -252,7 +252,7 @@ main .wrapper .image{
     display: inline-flex;
     width: 100%;
     height: 620px;
-    transform: translateX(250px);
+    transform: translateX(270px);
 }
 section.section_2{
     display: flex;
@@ -328,10 +328,6 @@ section.section_2 .wrapper .text .body h3 span#red{
 section.section_2 .wrapper .text p{
     font-size: clamp(var(--font-size-md), 5vw, var(--font-size-lg));
     font-weight: var(--font-weight-semibold);
-    background-color: #004aad;
-    width: fit-content;
-    padding: 4px 10px;
-    color: #fff;
     border-radius: 4px;
 }
 section.section_2 .wrapper .text ul{
@@ -439,6 +435,10 @@ section.section_3 .wrapper .center .top h2{
     margin: 0 auto;
     border-radius: 7px;
     margin-bottom: 15px;
+    line-height: 1;
+}
+section.section_3 .wrapper .center .top h2 span{
+    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-xl));
 }
 section.section_3 .wrapper .center .top h4{
     font-size: clamp(var(--font-size-md), 5vw, var(--font-size-2xl));
@@ -680,6 +680,7 @@ section.section_5 .wrapper .text{
     width: 1100px;
 }
 section.section_5 .wrapper .text p{
+    text-align: justify;
     font-size: var(--font-size-xl);
     line-height: 1.1;
 }
@@ -906,6 +907,7 @@ section.section_7 .wrapper .garantia .text{
     row-gap: 20px;
 }
 section.section_7 .wrapper .garantia .text p{
+    text-align: justify;
     font-size: var(--font-size-md);
     font-weight: var(--font-weight-normal);
     line-height: 1.1;
@@ -982,6 +984,7 @@ section.section_8 .content-collapse {
     letter-spacing: -1px;
 }
 section.section_8 .content-collapse p{
+    text-align: justify;
     font-size: var(--font-size-md);
     font-weight: var(--font-weight-normal);
     padding: 15px;
@@ -1097,10 +1100,10 @@ footer .by_evox img{
     }
     section.section_3 .wrapper:before, 
     section.section_3 .wrapper:after{
-        transform: translateY(-50%) scaleY(2.5) ;
+        transform: translateY(-50%) scaleY(3.5) ;
     }
     section.section_3 .wrapper:after{
-        transform: translateY(-50%) scaleX(-1) scaleY(2.5);
+        transform: translateY(-50%) scaleX(-1) scaleY(3.5);
     }
     section.section_3 .wrapper{
         min-height: auto;
@@ -1133,7 +1136,6 @@ footer .by_evox img{
     }
     section.section_4 h2{
         width: 100%;
-        font-size: var(--font-size-2xl);
     }
     section.section_4 .situations-grid{
         grid-template-columns: 1fr;
@@ -1183,6 +1185,10 @@ footer .by_evox img{
 }
 
 @media(max-width: 768px) {
+    .cta a {
+        line-height: 1.1;
+        padding: 15px 0;
+    }
     .whats-float{
         animation: pulse_whats 1s ease-in-out infinite alternate;
         bottom: 60px;
@@ -1197,11 +1203,21 @@ footer .by_evox img{
     main{
         padding-top: 0px;
     }
-    main .wrapper .text .top h1{
+    main .wrapper .text .top {
         text-align: center;
+    }
+    main .wrapper .text .top h1{
+        text-wrap: wrap;
+        margin-bottom: 10px;
+    }
+    main .wrapper .text .top h1 span{
+        text-wrap: wrap;
     }
     section.section_2 {
         padding-top: 40px;
+    }
+    section.section_4 h3{
+        line-height: 2;
     }
     section.section_6{
         padding: 30px 0;
