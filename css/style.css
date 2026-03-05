@@ -166,7 +166,7 @@ main .wrapper .text:before{
 }
 main .wrapper .text .top h3{
     font-family: "Exo", serif;
-    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-lg));
+    font-size: clamp(.8rem, 5vw, var(--font-size-sm));
     font-weight: var(--font-weight-extrabold);
     color: #004aad;
     text-transform: uppercase;
@@ -174,7 +174,7 @@ main .wrapper .text .top h3{
 }
 main .wrapper .text .top h1{
     font-family: "Exo", serif;
-    font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-3xl));
+    font-size: clamp(1.4rem, 5vw, 2.7rem);
     font-weight: var(--font-weight-extrabold);
     color: var(--plyr-color-main);
     line-height: 1.1;
@@ -183,7 +183,7 @@ main .wrapper .text .top h1{
 }
 main .wrapper .text .top h1 span{
     color: #004aad;
-    font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-5xl)) !important;
+    font-size: clamp(2rem, 5vw, var(--font-size-5xl)) !important;
     text-wrap: nowrap;
 }
 main .wrapper .text .top h2{
@@ -217,6 +217,13 @@ main .wrapper .text .body p{
     color: #000;
     line-height: 1.1;
     margin: 10px 0;
+}
+main .wrapper .text .body p span{
+    color: #ff3131;
+    font-weight: var(--font-weight-extrabold);
+}
+main .wrapper .text .body p span#blue{
+    color: #004aad;
 }
 main .wrapper .text .body h5{
     font-family: "Exo", serif;
@@ -283,6 +290,8 @@ section.section_2 .wrapper .text{
     }
 }
 section.section_2 .wrapper .text:after{
+    pointer-events: none;
+    z-index: -1;
     animation: animacao_bandeira_direita_section2 3s infinite alternate;
     position: absolute;
     content: "";
@@ -299,7 +308,7 @@ section.section_2 .wrapper .text .body {
     margin-bottom: 20px;
 }
 section.section_2 .wrapper .text .body h2{
-    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-3xl));
+    font-size: clamp(var(--font-size-md), 5vw, 2.2rem);
     font-family: "Exo", serif;
     font-weight: var(--font-weight-extrabold);
     text-align: center;
@@ -311,12 +320,17 @@ section.section_2 .wrapper .text .body h2{
     margin: 0 auto;
     border-radius: 7px;
 }
+section.section_2 .wrapper .text .body h2 span{
+    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-3xl));
+}
 section.section_2 .wrapper .text .body h3{
     margin: 20px 0;
-    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-lg));
     font-family: "Exo", serif;
-    font-weight: var(--font-weight-medium);
-    line-height: 1.3;
+    font-size: clamp(var(--font-size-sm), 3vw, var(--font-size-md));
+    font-weight: var(--font-weight-semibold);
+    text-align: justify;
+    color: #000;
+    line-height: 1.1;
 }
 section.section_2 .wrapper .text .body h3 span{
     font-weight: var(--font-weight-semibold);
@@ -326,9 +340,14 @@ section.section_2 .wrapper .text .body h3 span#red{
     color: #ff3131;
 }
 section.section_2 .wrapper .text p{
-    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-lg));
+    font-size: clamp(var(--font-size-sm), 3vw, var(--font-size-md));
     font-weight: var(--font-weight-semibold);
     border-radius: 4px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #004aad;
+    text-transform: uppercase;
+    width: fit-content;
 }
 section.section_2 .wrapper .text ul{
     width: 550px;
@@ -425,20 +444,20 @@ section.section_3 .wrapper .center{
 section.section_3 .wrapper .center .top h2{
     font-family: "Exo", serif;
     font-weight: var(--font-weight-extrabold);
-    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-3xl));
+    font-size: clamp(var(--font-size-xl), 5vw, var(--font-size-3xl));
     color: #fff;
     text-align: center;
     padding: 10px 20px;
     background-color: #004aad;
     text-transform: uppercase;
-    width: fit-content;
+    width: 400px;
     margin: 0 auto;
     border-radius: 7px;
     margin-bottom: 15px;
     line-height: 1;
 }
 section.section_3 .wrapper .center .top h2 span{
-    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-xl));
+    font-size: clamp(10px, 5vw, 1.5rem);
 }
 section.section_3 .wrapper .center .top h4{
     font-size: clamp(var(--font-size-md), 5vw, var(--font-size-2xl));
@@ -451,16 +470,16 @@ section.section_3 .wrapper .center .top h4 span{
     color: #ff3131;
 }
 section.section_3 .wrapper .center .top p{
-    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-2xl));
+    font-size: clamp(var(--font-size-sm), 5vw, var(--font-size-md));
     font-weight: var(--font-weight-normal);
     line-height: 1.1;
-    width: fit-content;
+    width: 400px;
+
     color: #fff;
     text-align: center;
     padding: 10px 20px;
     background-color: #ff3131;
     text-transform: uppercase;
-    width: fit-content;
     border-radius: 7px;
     margin: 20px auto;
 }
@@ -505,7 +524,7 @@ section.section_4 h2{
     text-align: center;
     font-size: clamp(var(--font-size-md), 5vw, var(--font-size-3xl));
     color: #ff3131;
-    line-height: 1.7;
+    line-height: 2;
     width: 1100px;
     margin: 0 auto;
     margin-bottom: 40px !important;
@@ -518,7 +537,7 @@ section.section_4 h2 span{
     width: fit-content;
     margin: 0 auto;
     border-radius: 7px;
-    padding: 5px 20px;
+    padding: 2px 20px;
 }
 section.section_4 .situations-grid{
     display: flex;
@@ -575,7 +594,7 @@ section.section_4 h3{
 section.section_4 h3 span{
     color: #fff;
     text-align: center;
-    padding: 4px 10px;
+    padding: 2px 7px;
     background-color: #ff3131;
     text-transform: uppercase;
     width: fit-content;
@@ -675,7 +694,7 @@ section.section_5 .wrapper .image{
 section.section_5 .wrapper .text{
     display: flex;
     flex-direction: column;
-    row-gap: 30px;
+    row-gap: 36px;
     text-align: left;
     width: 1100px;
 }
@@ -790,9 +809,11 @@ section.section_7 .wrapper .box-precos .header{
 section.section_7 .wrapper .box-precos .header h2{
     font-size: clamp(var(--font-size-xl), 5vw, var(--font-size-3xl));
     font-weight: var(--font-weight-extrabold);
-    line-height: 1.1;
+    -webkit-text-stroke: 1px #fff;
+    line-height: 1.2;
 }
 section.section_7 .wrapper .box-precos .header h2 span{
+    -webkit-text-stroke: 0px !important;
     font-size: clamp(var(--font-size-md), 5vw, var(--font-size-xl));
     line-height: 1.1;
 }
@@ -824,22 +845,25 @@ section.section_7 .wrapper .box-precos .body .promotion{
     padding: 20px 40px;
 }
 section.section_7 .wrapper .box-precos .body .promotion h4{
-    font-size: var(--font-size-2xl);
+    font-size: clamp(.6rem, 5vw, var(--font-size-xl));
     font-weight: var(--font-weight-normal);
     line-height: 1.1;
 }
 section.section_7 .wrapper .box-precos .body .promotion h4 span{
     color: #ff3131;
 }
+section.section_7 .wrapper .box-precos .body .promotion h3#title{
+    font-weight: var(--font-weight-extrabold);
+}
 section.section_7 .wrapper .box-precos .body .promotion h3{
     font-family: "Exo", serif;
-    font-size: clamp(var(--font-size-xl), 5vw, var(--font-size-2xl));
+    font-size: clamp(1rem, 5vw, var(--font-size-2xl));
     font-weight: var(--font-weight-normal);
+    color: #ff3131;
 }
 section.section_7 .wrapper .box-precos .body .promotion h3 span{
     font-weight: var(--font-weight-extrabold);
-    color: #ff3131;
-    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-4xl));
+    font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-4xl));
 }
 section.section_7 .wrapper .box-precos .body .promotion p{
     font-size: clamp(var(--font-size-sm), 5vw, var(--font-size-base));
@@ -1045,6 +1069,9 @@ footer .by_evox img{
     main .wrapper .text .top{
         margin-bottom: 10px;
     }
+    main .wrapper .text .top h2{
+        text-align: justify;
+    }
     main .wrapper .text .body h1{
         font-size: var(--font-size-md);
     }
@@ -1081,10 +1108,7 @@ footer .by_evox img{
     section.section_2 .wrapper .text:after{
         right: 0;
     }
-    section.section_2 .wrapper .text .body h3{
-        font-size: var(--font-size-md);
-        line-height: 1.1;
-    }
+
     section.section_2 .wrapper .text ul{
         width: 100%;
     }
@@ -1113,6 +1137,7 @@ footer .by_evox img{
     }
     section.section_3 .wrapper .center .top h4{
         font-size: var(--font-size-md);
+        text-align: justify;
     }
     section.section_3 .wrapper .center .video {
         border-radius: 10px;
@@ -1176,7 +1201,7 @@ footer .by_evox img{
     }
     section.section_5 .wrapper .text{
         width: 100%;
-        row-gap: 15px;
+        row-gap: 30px;
     }
     section.section_5 .wrapper .text p{
         font-size: var(--font-size-md);
@@ -1204,11 +1229,10 @@ footer .by_evox img{
         padding-top: 0px;
     }
     main .wrapper .text .top {
-        text-align: center;
+        text-align: left;
     }
-    main .wrapper .text .top h1{
-        text-wrap: wrap;
-        margin-bottom: 10px;
+    main .wrapper .text .top h3{
+        font-size: 13px;
     }
     main .wrapper .text .top h1 span{
         text-wrap: wrap;
@@ -1216,7 +1240,24 @@ footer .by_evox img{
     section.section_2 {
         padding-top: 40px;
     }
+    section.section_2 .wrapper .text ul li span{
+        font-size: .8rem;
+    }
+    section.section_3 .wrapper .center .top h2,
+    section.section_3 .wrapper .center .top p{
+        width: auto;
+    }
+    section.section_2 .wrapper .text .body h2 span{
+        font-size: 1.5rem;
+    }
+    section.section_3 .wrapper .center .top h2 span{
+        font-size: 15px;
+    }
+    section.section_3 .wrapper .center .top p{
+        font-size: 15px;
+    }
     section.section_4 h3{
+        text-align: justify;
         line-height: 2;
     }
     section.section_6{
@@ -1271,7 +1312,10 @@ footer .by_evox img{
         border-radius: 40px;
     }
     section.section_7 .wrapper .box-precos .header h2{
-        font-size: var(--font-size-xl);
+        font-size: var(--font-size-2xl);
+    }
+    section.section_7 .wrapper .box-precos .header h2 span{
+        font-size: 1.1rem;
     }
     section.section_7 .wrapper .box-precos .body{
         padding: 20px;
@@ -1286,11 +1330,11 @@ footer .by_evox img{
         padding: 0px;
         padding-top: 20px;
     }
-    section.section_7 .wrapper .box-precos .body .promotion h4{
-        font-size: var(--font-size-xl);
+    section.section_7 .wrapper .box-precos .body .promotion p{
+        text-align: justify;
     }
     section.section_7 .wrapper .box-precos .body .promotion h3{
-        font-size: var(--font-size-2xl);
+        font-size: var(--font-size-md);
     }
     section.section_7 .wrapper .box-precos .cta{
         height: auto;
