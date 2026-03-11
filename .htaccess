@@ -23,6 +23,17 @@ RewriteRule ^ https://www.%1%{REQUEST_URI} [R=301,L]
   AddOutputFilterByType DEFLATE text/html
   AddOutputFilterByType DEFLATE text/xml
   AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE video/mp4
+  AddOutputFilterByType DEFLATE video/mov
+  AddOutputFilterByType DEFLATE video/webm
+  AddOutputFilterByType DEFLATE font/woff2
+  AddOutputFilterByType DEFLATE font/woff
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE font/eot
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/svg
+  AddOutputFilterByType DEFLATE font/webp
+  AddOutputFilterByType DEFLATE font/ico
   AddOutputFilterByType DEFLATE text/javascript
   AddOutputFilterByType DEFLATE application/javascript
   AddOutputFilterByType DEFLATE application/x-javascript
@@ -37,7 +48,8 @@ RewriteRule ^ https://www.%1%{REQUEST_URI} [R=301,L]
 
   # HTML (atualiza com frequência)
   ExpiresByType text/html "access plus 1 hour"
-
+  ExpiresByType video/mp4 "access plus 1 month"
+  ExpiresByType video/mov "access plus 1 month"
   # CSS, JS (cache por 1 mês)
   ExpiresByType text/css "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
@@ -54,8 +66,8 @@ RewriteRule ^ https://www.%1%{REQUEST_URI} [R=301,L]
 
 # Cabeçalhos para cache
 <IfModule mod_headers.c>
-  <FilesMatch "\.(js|css|jpg|jpeg|png|gif|svg|webp|ico)$">
-    Header set Cache-Control "max-age=2592000, public"
+  <FilesMatch "\.(js|css|jpg|jpeg|png|gif|svg|webp|ico|mp4|mov|woff2|woff|ttf|eot|otf|svg|webp|ico)$">
+    Header set Cache-Control "max-age=31536000, public"
   </FilesMatch>
 </IfModule>
 

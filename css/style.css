@@ -345,7 +345,7 @@ section.section_2 .wrapper .text .body h3 span#red{
     color: #ff3131;
 }
 section.section_2 .wrapper .text p{
-    font-size: clamp(var(--font-size-sm), 3vw, var(--font-size-md));
+    font-size: clamp(var(--font-size-sm), 3vw, 1.1rem);
     font-weight: var(--font-weight-semibold);
     border-radius: 4px;
     padding: 10px 20px;
@@ -496,7 +496,7 @@ section.section_3 .wrapper .center .video{
 section.section_3 .wrapper .center .video video{
     background-color: #000;
     width: 100%;
-    height: 500px;
+    height: 450px;
 }
 section.section_3 .wrapper .cta{
     width: 100%;
@@ -728,44 +728,46 @@ section.section_6 h2{
     text-align: center;
     color: #ff3131;
     font-family: "Exo", serif;
-    font-size: var(--font-size-4xl);
+    font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-4xl));
     font-weight: var(--font-weight-extrabold);
     text-transform: uppercase;
     margin-bottom: 30px;
 }
-.swiper-testimonial{
+section.section_6 h2 span{
+    font-size: clamp(var(--font-size-xl), 5vw, 46px);
+}
+section.section_6 .swiper-testimonial{
     width: 100%;
     height: 100%;
     margin: 0 auto;
   }
-.swiper-testimonial .swiper-wrapper{
+section.section_6 .swiper-testimonial .swiper-wrapper{
     padding: 50px 0 !important;
+    padding-bottom: 100px !important;
 }
-  .swiper-slide {
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-    min-height: 300px;
-    text-align: center;
-    border-radius: 40px;
-    padding: 30px 23px;
-    background: #fff;
+section.section_6 .swiper-slide {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   }
-  
-  .swiper-slide img {
+section.section_6 .swiper-slide .wrapper{
+    width: 90%;
+    min-height: 450px;
+    text-align: center;
+    background: #fff;
+    border-radius: 40px;
+    padding: 30px 23px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+ section.section_6 .swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
   
-  .swiper-pagination-bullet {
+ section.section_6 .swiper-pagination-bullet {
     width: var(
       --swiper-pagination-bullet-width,
       var(--swiper-pagination-bullet-size, 15px)
@@ -776,55 +778,34 @@ section.section_6 h2{
     );
     background: #d9d9d9;
     background: #504b4b;
-  }
-  
-  .swiper-horizontal > .swiper-pagination-bullets,
-  .swiper-pagination-bullets.swiper-pagination-horizontal,
-  .swiper-pagination-custom,
-  .swiper-pagination-fraction {
-    bottom: var(--swiper-pagination-bottom, -4px);
-  }
-  
-  .swiper-pagination-bullet-active {
-    background: var(--primary-text);
-  }
-  
-  .swiper.testimonial-wrapper {
-    padding-top: 59px;
-    padding-bottom: 60px;
-  }
-  
-  .testimonial-items {
-  }
-  .testimonial-items .testimonial-text {
+}
+
+section.section_6 .swiper-pagination-bullet-active {
+    background: #ff3131;
+}
+
+section.section_6  .testimonial-items .testimonial-text {
     color: var(--white-text-white);
     text-align: center;
     font-size: 16px;
-    font-family: "Outfit";
     font-weight: normal;
     font-style: normal;
     max-width: 330px;
     margin-bottom: 45px;
     margin-top: 50px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    line-clamp: 4;
-    -webkit-line-clamp: 4;
   }
   
-  .testimonial-items .testimonial-title {
+  section.section_6 .testimonial-items .testimonial-title {
     color: var(--white-text-white);
     text-align: center;
-    font-size: 16px;
-    font-family: "Outfit";
+    font-size: 14px;
     font-weight: bold;
     font-style: normal;
     margin-bottom: 20px;
     position: relative;
   }
   
-  .testimonial-items .testimonial-title::before {
+  section.section_6 .testimonial-items .testimonial-title::before {
     content: "";
     position: absolute;
     left: -23px;
@@ -834,7 +815,7 @@ section.section_6 h2{
     background-color: var(--white-text-white);
   }
   
-  .testimonial-img {
+  section.section_6 .testimonial-img {
     background-color: #ff3131;
     border-radius: 50%;
     top: -50px;
@@ -850,7 +831,7 @@ section.section_6 h2{
     overflow: hidden;
   }
   
-  .testimonial-img::before {
+  section.section_6 .testimonial-img::before {
     content: "";
     position: absolute;
     left: 50%;
@@ -864,13 +845,13 @@ section.section_6 h2{
     background-size: cover;
   }
 
-.swiper-slide .review-stars{
+section.section_6 .swiper-slide .review-stars{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
 }
-.swiper-slide .review-stars:after{
+section.section_6 .swiper-slide .review-stars:after{
     content: "";
     position: absolute;
     left: 50%;
@@ -887,7 +868,7 @@ section.section_6 h2{
   
   /* media query  */
   @media screen and (min-width: 768px) {
-    .swiper-pagination-bullet {
+    section.section_6 .swiper-pagination-bullet {
       width: var(
         --swiper-pagination-bullet-width,
         var(--swiper-pagination-bullet-size, 24px)
@@ -897,8 +878,8 @@ section.section_6 h2{
         var(--swiper-pagination-bullet-size, 24px)
       );
     }
-    .section-title::before,
-    .section-title::after {
+    section.section_6 .section-title::before,
+    section.section_6 .section-title::after {
       width: 141px;
     }
   
@@ -906,7 +887,7 @@ section.section_6 h2{
     .section-title::after {
       left: 25%;
     }
-    .section-title::after {
+    section.section_6 .section-title::after {
       right: 25%;
     } */
   }
@@ -1004,15 +985,27 @@ section.section_7 .wrapper .box-precos .body .promotion h3{
     font-weight: var(--font-weight-normal);
     color: #ff3131;
 }
+section.section_7 .wrapper .box-precos .body .promotion h3 .small{
+    font-size: clamp(1rem, 5vw, var(--font-size-xl));
+}
 section.section_7 .wrapper .box-precos .body .promotion h3 span{
     font-weight: var(--font-weight-extrabold);
     font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-4xl));
 }
 section.section_7 .wrapper .box-precos .body .promotion p{
+    text-align: justify;
     font-size: clamp(var(--font-size-sm), 5vw, var(--font-size-base));
     font-weight: var(--font-weight-normal);
     line-height: 1.1;
     margin: 20px 0;
+}
+section.section_7 .wrapper .box-precos .body .promotion p #red{
+    color: #ff3131 !important;
+}
+section.section_7 .wrapper .box-precos .body .promotion p#destaque{
+    color: #ff3131 !important;
+    font-weight: var(--font-weight-extrabold);
+    margin-bottom: 0 !important;
 }
 section.section_7 .wrapper .box-precos .cta{
     display: inline-flex;
@@ -1377,6 +1370,9 @@ footer .by_evox img{
     main .wrapper .text .top h3{
         font-size: 13px;
     }
+    main .wrapper .text .top h1{
+        transform: none;
+    }
     main .wrapper .text .top h1 span{
         text-wrap: wrap;
     }
@@ -1411,32 +1407,7 @@ footer .by_evox img{
         padding: 0 10px;
     }
     section.section_6 h2{
-        font-size: var(--font-size-2xl);
-    }
-    section.section_6 .wrapper{
-        gap: 10px;
-    }
-    section.section_6 .wrapper .video{
-        border-radius: 35px;
-        flex-basis: 47%;
-        height: 300px;
-    }
-    section.section_6 .wrapper .video video{
-        width: 100% !important;
-        height: 100% !important;
-    }
-      section.section_6 .wrapper .video {
-        border-radius: 10px;
-        width: 100% !important;
-        height: 300px !important;
-    }
-      section.section_6 .wrapper .video .video-js{
-        width: 100% !important;
-        height: 300px !important;
-    }
-      section.section_6 .wrapper .video video{
-        width: 100% !important;
-        height: 300px !important;
+        font-size: var(--font-size-xl);
     }
     section.section_7{
         overflow: hidden;
@@ -1455,7 +1426,7 @@ footer .by_evox img{
         border-radius: 40px;
     }
     section.section_7 .wrapper .box-precos .header h2{
-        font-size: var(--font-size-2xl);
+        font-size: var(--font-size-xl);
     }
     section.section_7 .wrapper .box-precos .header h2 span{
         font-size: 1.1rem;
@@ -1477,7 +1448,7 @@ footer .by_evox img{
         text-align: justify;
     }
     section.section_7 .wrapper .box-precos .body .promotion h3{
-        font-size: var(--font-size-md);
+        font-size: var(--font-size-xl);
     }
     section.section_7 .wrapper .box-precos .cta{
         height: auto;
